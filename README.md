@@ -26,3 +26,30 @@
       console.log(`Listening on http://localhost:${port}`);
       await sequelize.sync();
       });
+
+# create API routes in sever.js
+
+      const { sequelize, Flashcard } = require('./models');
+
+      app.use(express.json());
+
+      app.post('/flashcards', async (req, res) => {
+      const { category, front, back } = req.body;
+      try {
+        const flashcard = await Flashcard.create({ category, front, back });
+        return res.json(flashcard);
+      } catch (err) {
+        console.log(err);
+        return res.status(500);
+      }
+      });
+
+      ## test in Postman
+
+      POST -- http://localhost:PORT/flashcards
+
+        {
+          "category":"vim",
+          "front":"duploicate line",
+          "back":"yyp"
+        }
