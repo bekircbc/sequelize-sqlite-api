@@ -13,3 +13,7 @@
       "dialect": "sqlite",
       "storage": "data/main.sqlite"
       },
+
+# create Flaschcard model and migration
+
+      sequelize model:generate --name Flashcard --attributes category:string,front:string,back:string
