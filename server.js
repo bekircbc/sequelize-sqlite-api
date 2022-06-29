@@ -67,6 +67,22 @@ app.put("/flashcards/:id", async (req, res) => {
   }
 });
 
+app.delete("/flashcards/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const flashcard = await Flashcard.findOne({
+      where: { id },
+    });
+
+    await flashcard.destroy();
+
+    return res.json({ message: `Flashcard with id ${id} deleted.` });
+  } catch (err) {
+    console.log(err);
+    return res.status(500);
+  }
+});
+
 app.listen(port, async () => {
   console.log(`Listening on http://localhost:${port}`);
   await sequelize.sync();
