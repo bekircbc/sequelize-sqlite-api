@@ -53,3 +53,15 @@
           "front":"duploicate line",
           "back":"yyp"
         }
+
+# getting flashcards
+
+      app.get('/flashcards', async (req, res) => {
+      try {
+        const flashcards = await Flashcard.findAll();
+        return res.json(flashcards);
+        } catch (err) {
+        console.log(err);
+        return res.status(500);
+        }
+        });
