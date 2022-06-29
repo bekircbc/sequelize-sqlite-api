@@ -7,6 +7,17 @@
 
 - if you use sequelize, choose require instead of import.
 
+# sequelize ORM
+
+- in order to avoid the need to create SQL statements such as CREATE TABLE, SELECT, INSERT INTO, DELETE and UPDATE, we use an ORM which simplies this work for us
+
+- there are many SQL ORMs to use such as Knew.js , Sequelize, TypeORM and Prisma
+
+- Knew.js [https://knexjs.org/guide/]
+- Sequelize [https://sequelize.org/]
+- TypeORM [https://typeorm.io/]
+- Prisma [https://www.prisma.io/]
+
 # config.json in sequelize
 
       "development": {
